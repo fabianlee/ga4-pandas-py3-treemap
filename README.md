@@ -86,6 +86,3 @@ pip3 install -r requirements.txt
 * https://www.analyticsvidhya.com/blog/2021/10/how-to-build-a-treemap-in-3-ways-using-python/
 * https://stackoverflow.com/questions/64393535/python-plotly-treemap-ids-format-and-how-to-display-multiple-duplicated-labels-i
 * https://towardsdatascience.com/plotly-for-hierarchical-data-visualization-treemaps-and-more-47b36c5db3eb
-
-
-* 
