@@ -5,7 +5,7 @@
  Uses plotly to construct TreeMap hierarchial visualizations based on category and year
 
  Hierarchial data for TreeMap constructed assuming:
-   * WordPress Settings > Permanlinks slugs '/%year%/%monthnum%/%day%/%postname%/'
+   * WordPress Settings > Permalinks slugs '/%year%/.../%postname%/'
    * The first word of the Page title slug is the category
 
  Starting point attribution:
@@ -102,7 +102,7 @@ def get_unique_pagecount_report(jsonKeyFilePath,property_id,startDateStr,endDate
     df['activeUsers'] = df['activeUsers'].astype(str).astype(int)
 
     # construct 'year' column from first part of WordPress request path
-    # assumes WordPress Settings > Permanlinks slugs '/%year%/%monthnum%/%day%/%postname%/'
+    # assumes WordPress Settings > Permalinks slugs '/%year%/.../%postname%/'
     df = df.assign(year = lambda row: row['pagePath'].str[1:5] if row['pagePath'].str[1:3][0]=='20' else None)
     # this also works for parsing year from request path
     #df['year'] = df['pagePath'].str.split('/').str[1]

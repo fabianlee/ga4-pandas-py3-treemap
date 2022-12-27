@@ -1,17 +1,18 @@
-# Page growth/trend report from Google Analytics Data API v1 and GA4 Property using gapandas4
+# Page count TreeMap visualization using Google Analytics Data API v1 from GA4 Property using gapandas4/plotly
 
 [Google Analytics](https://analytics.google.com/) makes it easy to view your page counts for an arbitrary date range, but what is more difficult is comparing these results to an older window of data to see:
 
 * Which pages have grown/lost in absolute counts
 * Which pages are trending growth/loss in terms of their percent (up-and-comers)
 
-This [GA4PandasPageGrowth.py3](GA4PandasPageGrowth.py3) Python script uses the [gapandas4 module](https://github.com/practical-data-science/gapandas4) to:
+This [GA4PandasTreeMap.py3](GA4PandasTreeMap.py3) Python script uses the [gapandas4 module](https://github.com/practical-data-science/gapandas4) and [plotly](https://plotly.com/python/) to:
 
 * Query a window of GA4 data (default=today-30daysAgo), create [pandas DataFrame](https://www.geeksforgeeks.org/python-pandas-dataframe/)
 * Query the preceding window of GA4 data (default=30daysAgo-60daysAgo), create pandas DataFrame
 * Merge older DataFrame page counts, sythesize delta and deltaPercentage
-* Sort by absolute page counts, show biggest absolute winners/losers
-* Sorty by delta percent changes, show biggest trending winners/losers
+* Isolate 'year' and 'category' from WordPress slugs. Assumes WP Permalinks '/%year%/.../%postname%/'
+* Create TreeMap visualization using 'category' as hierachial data
+* Create TreeMap visualization using 'year' as hierachial data
 
 This can help you fine-tune your content creation, and invest in content that is showing the largest potential.
 
@@ -41,8 +42,8 @@ The [gapandas4 module](https://github.com/practical-data-science/gapandas4) uses
 sudo apt-get update
 sudo apt-get install software-properties-common python3 python3-dev python3-pip python3-venv curl git -y
 
-git clone https://github.com/fabianlee/ga4-pandas-py3-page-growth-trend.git
-cd ga4-pandas-py3-page-growth-trend
+git clone https://github.com/fabianlee/ga4-pandas-py3-treemap.git
+cd ga4-pandas-py3-treemap
 
 # create virtual env for isolated libs
 python3 -m venv .
@@ -58,10 +59,10 @@ pip3 install -r requirements.txt
 # place json key into this directory
 
 # invoke report generator
-./GA4PandasPageGrowth.py3 <jsonKeyFile> <analyticsPropertyID>
+./GA4PandasTreeMap.py3 <jsonKeyFile> <analyticsPropertyID>
 
 # width of report window can be changed (default=30 days)
-./GA4PandasPageGrowth.py3 <jsonKeyFile> <analyticsPropertyID> -d 14
+./GA4PandasTreeMap.py3 <jsonKeyFile> <analyticsPropertyID> -d 14
 ```
 
 
@@ -74,3 +75,13 @@ pip3 install -r requirements.txt
 * https://www.oncrawl.com/technical-seo/forecast-search-traffic-python-ga4/
 * https://practicaldatascience.co.uk/data-science/how-to-query-the-google-analytics-data-api-for-ga4-with-python
 * https://github.com/tanyazyabkina/GA4_API_python/blob/main/GA4%20Python%20Report.ipynb
+
+* https://plotly.com/python-api-reference/generated/plotly.express.treemap.html
+* https://plotly.com/python/treemaps/#set-different-attributes-in-treemap
+* https://stackoverflow.com/questions/67905114/plotly-show-hoverinfo-in-treemap-only-for-child-nodes
+* https://www.analyticsvidhya.com/blog/2021/10/how-to-build-a-treemap-in-3-ways-using-python/
+* https://stackoverflow.com/questions/64393535/python-plotly-treemap-ids-format-and-how-to-display-multiple-duplicated-labels-i
+* https://towardsdatascience.com/plotly-for-hierarchical-data-visualization-treemaps-and-more-47b36c5db3eb
+
+
+* 
