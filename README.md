@@ -1,4 +1,4 @@
-# Page count TreeMap visualization using Google Analytics Data API v1 from GA4 Property using gapandas4/plotly
+# TreeMap visualization of page count trends using Google Analytics Data API v1 from GA4 Property
 
 [Google Analytics](https://analytics.google.com/) makes it easy to view your page counts for an arbitrary date range, but what is more difficult is comparing these results to an older window of data to see:
 
