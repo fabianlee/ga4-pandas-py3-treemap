@@ -5,6 +5,8 @@
 * Which pages have grown/lost in absolute counts
 * Which pages are trending growth/loss in terms of their percent (up-and-comers)
 
+The TreeMap visualization below is built by querying the Google Analytics Data API v1 and constructing a Pandas DataFrame of hierarchial data sent to the [plotly library](https://plotly.com/python/).
+
 ![TreeMap visualization of page count trends](docs/GA4-treemap-category.png "treemap")
 
 This [GA4PandasTreeMap.py3](GA4PandasTreeMap.py3) Python script uses the [gapandas4 module](https://github.com/practical-data-science/gapandas4) and [plotly](https://plotly.com/python/) to:
