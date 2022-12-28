@@ -5,7 +5,7 @@
 
 #
 # from inside venv:
-# pip3 install plotly kaleido
+# pip3 install pandas plotly kaleido
 # pip3 freeze | tee requirements.txt
 #
 import sys
